@@ -56,7 +56,7 @@ function About() {
               <div className='about_skills_top_left'>
                 <div className='about_skills_pic'>
 
-                  <img src="../images/me.png" alt="me" />
+                  <img src="images/me.png" alt="me" />
                   <p>안녕하세요,<br />
                     노력이 결실을 맺을 때의 쾌감을 즐기는
                     UI 개발자 <strong>이상현</strong> 입니다!
@@ -67,55 +67,55 @@ function About() {
               </div>
 
               <div className='about_skills_top_right'>
-              <Swiper
-                direction={'horizontal'}
-                slidesPerView={1}
-    >
-      <SwiperSlide>  
-        <ul>
-                  <li>html5/css3.0한국형 웹접근성 지침(KWCAG 2.1)을 준수한 기본 마크업과 레이아웃 구성</li>
-                  <li>반응형MEDIA Query를 이용한 반응형 웹페이지 하드코딩 제작 가능</li>
-                  <li>JAVA SCRIPTJAVA SCRIPT 기분문법(core) 하드코딩 가능
-                    (2Depth animation을 활용한 네비게이션 하드코딩 제작가능)
-                    (BUTTON형, DOT형 반응형 슬라이드 하드코딩 제작)</li>
-                  <li>Firebase 연동 백엔드 기능 구현 가능</li>
-                </ul>
-                </SwiperSlide>
-              <SwiperSlide>
-              <div className='about_me_top'>
-              <div className='about_me_left about_me_text'>
-                <dl>
-                  <dt><FaUserAlt />About me</dt>
-                  <dd>이상현</dd>
-                  <dd>1993.11.17</dd>
-                  <dd>서울시 동작구 거주 중</dd>
-                </dl>
-              </div>
-              <div className='about_me_right about_me_text'>
-                <dl>
-                  <dt><FaPhone />Contact</dt>
-                  <dd>010.6685.0145</dd>
-                  <dd>aromad1117@naver.com</dd>
-                </dl>
-              </div>
-            </div>
-            <div className='about_me_bottom about_me_text'>
-              <dl>
-                <dt><FaHistory />History</dt>
-                <dd>2019.07 ~ 2019.10 블록체인 미르 개발팀 입사 - 퍼블리셔 업무</dd>
-                <dd>2019.08 ~ 2019.10뉴비코 홈페이지 제작</dd>
-                <dd>2022.12 ~ 2023.05 이젠 평생 교육원 UI/UX 웹&앱 디자인 & 프론트엔드 강의 수료</dd>
-              </dl>
-            </div>
-              </SwiperSlide>
-    </Swiper>
-              
+                <Swiper
+                  direction={'horizontal'}
+                  slidesPerView={1}
+                >
+                  <SwiperSlide>
+                    <ul>
+                      <li>html5/css3.0한국형 웹접근성 지침(KWCAG 2.1)을 준수한 기본 마크업과 레이아웃 구성</li>
+                      <li>반응형MEDIA Query를 이용한 반응형 웹페이지 하드코딩 제작 가능</li>
+                      <li>JAVA SCRIPTJAVA SCRIPT 기분문법(core) 하드코딩 가능
+                        (2Depth animation을 활용한 네비게이션 하드코딩 제작가능)
+                        (BUTTON형, DOT형 반응형 슬라이드 하드코딩 제작)</li>
+                      <li>Firebase 연동 백엔드 기능 구현 가능</li>
+                    </ul>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className='about_me_top'>
+                      <div className='about_me_left about_me_text'>
+                        <dl>
+                          <dt><FaUserAlt />About me</dt>
+                          <dd>이상현</dd>
+                          <dd>1993.11.17</dd>
+                          <dd>서울시 동작구 거주 중</dd>
+                        </dl>
+                      </div>
+                      <div className='about_me_right about_me_text'>
+                        <dl>
+                          <dt><FaPhone />Contact</dt>
+                          <dd>010.6685.0145</dd>
+                          <dd>aromad1117@naver.com</dd>
+                        </dl>
+                      </div>
+                    </div>
+                    <div className='about_me_bottom about_me_text'>
+                      <dl>
+                        <dt><FaHistory />History</dt>
+                        <dd>2019.07 ~ 2019.10 블록체인 미르 개발팀 입사 - 퍼블리셔 업무</dd>
+                        <dd>2019.08 ~ 2019.10뉴비코 홈페이지 제작</dd>
+                        <dd>2022.12 ~ 2023.05 이젠 평생 교육원 UI/UX 웹&앱 디자인 & 프론트엔드 강의 수료</dd>
+                      </dl>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+
               </div>
             </div>
             <div className='about_skills_bottom'>
               <ul>
                 <li>
-                  <img src="../images/html5.png" alt='qew' />
+                  <img src="images/html5.png" alt='qew' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -124,7 +124,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="../images/css3.png" alt='qew' />
+                  <img src="images/css3.png" alt='qew' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -133,7 +133,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="../images/javascript.png" alt='qew' />
+                  <img src="images/javascript.png" alt='qew' />
                   <span className='skill_status'>
                     html5
                   </span>

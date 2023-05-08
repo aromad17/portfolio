@@ -34,7 +34,7 @@ function Content() {
           <ellipse id="el3" rx="200" ry="80" />
           <ellipse id="el4" rx="80" ry="200" />
         </g>
-      </svg> */}
+  </svg> ddd*/}
 
       <About />
 

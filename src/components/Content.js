@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import 'styles/content.css'
 import 'styles/bg.scss'
 import About from './About';
+import Work from './Work';
 
 function Content() {
 
@@ -37,7 +38,7 @@ function Content() {
   </svg> ddd*/}
 
       <About />
-
+      <Work />
 
 
     </div>

@@ -1,0 +1,212 @@
+.work {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.work>.section_title {
+  background: #242226;
+}
+
+.work>.section_title>h2 {
+  color: #E6E9DE;
+}
+
+.work_wrap {
+  position: absolute;
+  top: 250px;
+  width: 100%;
+  height: calc(100% - 250px);
+  /* overflow: hidden; */
+}
+
+.work_contents {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 500%;
+  height: 100%;
+}
+
+.work_content {
+  display: flex;
+  width: 20%;
+  height: 100%;
+}
+
+.work_preview,
+.work_description {
+  width: 50%;
+  height: 100%;
+}
+
+.work_preview {
+  position: relative;
+}
+
+.mockup {
+  width: 100%;
+  height: 80%;
+}
+
+.pc_mockup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 420px;
+  background-image: url(../../public/images/pc.png);
+  background-size: cover;
+}
+
+.tablet_mockup {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 290px;
+  height: 355px;
+  background-image: url(../../public/images/tablet.png);
+  background-size: cover;
+}
+
+.phone_mockup {
+  position: absolute;
+  top: 60%;
+  left: 84%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 280px;
+  background-image: url(../../public/images/phone.png);
+  background-size: cover;
+}
+
+.work_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #E6E9DE;
+}
+
+.description_space {
+  width: 80%;
+  height: 80%;
+  padding: 50px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background: #242226;
+}
+
+.description_space>h3 {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  margin-bottom: 20px;
+}
+
+.description_space>ul {
+  margin-bottom: 40px;
+}
+
+.description_space>ul>li {
+  display: inline-block;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 15px;
+  padding: 0 20px;
+  background: #E6E9DE;
+  line-height: 40px;
+  color: #242226;
+  font-size: 1.5rem;
+  text-align: center;
+
+}
+
+.description_space>dl>dt {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+}
+
+.description_space>dl>dd.spa {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: AppleSDGothicNeoUL;
+}
+
+.description_space>dl>dd>dl {
+  margin-bottom: 30px;
+}
+
+.description_space>dl>dd>dl>dt {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.description_space>dl>dd {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.description_space>dl>dd>dl>dd {
+  position: relative;
+  list-style: disc;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  font-size: 1.25rem;
+  font-family: AppleSDGothicNeoUL;
+}
+
+.description_space>dl>dd>dl>dd>svg {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  width: 0.4em;
+  height: 0.4em;
+  line-height: 40px;
+  margin-right: 10px;
+}
+
+.work_description>ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.work_description>ul>li {}
+
+.work_description>ul>li>a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.work_description>ul>li>a>svg {
+  width: 3rem;
+  height: 3rem;
+  color: #242226;
+}
+
+.cj {
+  border: 1px solid orangered;
+}
+
+.samsung_electric {
+  border: 1px solid firebrick;
+}
+
+.samsung_engineering {
+  border: 1px solid dodgerblue;
+}
+
+.messanger {
+  border: 1px solid goldenrod;
+}
+
+.netflix {
+  border: 1px solid purple;
+}

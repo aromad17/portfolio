@@ -3,6 +3,7 @@ import 'styles/about.css'
 import { FaUserAlt, FaPhone, FaHistory } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+
 function About() {
 
 
@@ -10,7 +11,7 @@ function About() {
 
     <div className='about'>
       <div className='section_title'>
-        <h2>About -&nbsp;</h2>
+        <h2>About <span>-</span>&nbsp;</h2>
         <ul>
           <li>Me</li>
           <li>Skill</li>
@@ -56,7 +57,7 @@ function About() {
               <div className='about_skills_top_left'>
                 <div className='about_skills_pic'>
 
-                  <img src="images/me.png" alt="me" />
+                  <img src={process.env.PUBLIC_URL + '/images/me.png'} alt="me" />
                   <p>안녕하세요,<br />
                     노력이 결실을 맺을 때의 쾌감을 즐기는
                     UI 개발자 <strong>이상현</strong> 입니다!
@@ -68,7 +69,6 @@ function About() {
 
               <div className='about_skills_top_right'>
                 <Swiper
-                  direction={'horizontal'}
                   slidesPerView={1}
                 >
                   <SwiperSlide>
@@ -115,7 +115,7 @@ function About() {
             <div className='about_skills_bottom'>
               <ul>
                 <li>
-                  <img src="images/html5.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/html5.png'} alt='html5' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -124,7 +124,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/css3.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/css3.png'} alt='css3' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -133,7 +133,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/javascript.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/javascript.png'} alt='javascript' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -142,7 +142,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/react.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/react.png'} alt='react' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -151,7 +151,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/typescript.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/typescript.png'} alt='typescript' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -160,7 +160,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/sass.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/sass.png'} alt='sass' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -169,7 +169,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/photoshop.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/photoshop.png'} alt='photoshop' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -178,7 +178,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/illurstrator.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/illustrator.png'} alt='illustrator' />
                   <span className='skill_status'>
                     html5
                   </span>
@@ -187,7 +187,7 @@ function About() {
                   </span>
                 </li>
                 <li>
-                  <img src="images/figma.png" alt='qew' />
+                  <img src={process.env.PUBLIC_URL + '/images/figma.png'} alt='figma' />
                   <span className='skill_status'>
                     html5
                   </span>

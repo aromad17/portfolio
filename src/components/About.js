@@ -15,30 +15,32 @@ function About() {
 
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY || window.pageYOffset;
+
       if (window.innerWidth >= 768) {
 
-        if (scrollPosition >= 970) {
-          console.log(scrollPosition);
+        if (scrollPosition < 970) {
+          about.style.position = 'relative';
+          aboutMove.style.left = '0';
+        }
+        if (scrollPosition >= 970 && !parseFloat(aboutMove.style.left) <= -100) {
           const leftPosition = -((scrollPosition - 970) / 10);
-
           about.style.position = 'fixed';
           about.style.left = 0;
           about.style.top = 0;
           about.style.zIndex = 100;
           aboutMove.style.left = leftPosition + "%";
+
           if (parseFloat(aboutMove.style.left) <= -50) {
-            if (scrollPosition >= 1465) {
-              about.style.position = 'absolute';
-              window.scroll({
-                top: 1072,
-                left: 0
-              })
+            if (scrollPosition >= 1700) {
+              about.style.position = 'relative';
+
             }
           }
         }
       }
     });
   }, []);
+
 
 
   return (
@@ -102,7 +104,7 @@ function About() {
               <dl>
                 <dt><FaHistory />History</dt>
                 <dd>2019.07 ~ 2019.10 블록체인 미르 개발팀 입사 - 퍼블리셔 업무</dd>
-                <dd>2019.08 ~ 2019.10뉴비코 홈페이지 제작</dd>
+                <dd>2019.08 ~ 2019.10 뉴비코 홈페이지 제작</dd>
                 <dd>2022.12 ~ 2023.05 이젠 평생 교육원 UI/UX 웹&앱 디자인 & 프론트엔드 강의 수료</dd>
               </dl>
             </div>

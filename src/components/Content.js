@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import 'styles/content.css'
-import 'styles/bg.scss'
+import 'styles/common.css'
 import About from './About';
 import Work from './Work';
+import Contact from './Contact';
 
 function Content() {
 
@@ -39,7 +39,7 @@ function Content() {
 
       <About />
       <Work />
-
+      <Contact />
 
     </div>
   )

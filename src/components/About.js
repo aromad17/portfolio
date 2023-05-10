@@ -3,13 +3,72 @@ import 'styles/about.css'
 import { FaUserAlt, FaPhone, FaHistory } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'styles/stripe.scss';
+
 
 function About() {
+
+  useEffect(() => {
+    const about = document.querySelector('.about');
+    const aboutMove = document.querySelector('.about .contents');
+    const windowHeight = window.innerHeight;
+
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY || window.pageYOffset;
+      if (window.innerWidth >= 768) {
+
+        if (scrollPosition >= 970) {
+          console.log(scrollPosition);
+          const leftPosition = -((scrollPosition - 970) / 10);
+
+          about.style.position = 'fixed';
+          about.style.left = 0;
+          about.style.top = 0;
+          about.style.zIndex = 100;
+          aboutMove.style.left = leftPosition + "%";
+          if (parseFloat(aboutMove.style.left) <= -50) {
+            if (scrollPosition >= 1465) {
+              about.style.position = 'absolute';
+              window.scroll({
+                top: 1072,
+                left: 0
+              })
+            }
+          }
+        }
+      }
+    });
+  }, []);
 
 
   return (
 
     <div className='about'>
+      {/* 
+      <div className='stripe_wrap'>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div>
+        </div>
+        <div className='stripe'>
+          <div className='stripe_line'></div> 
+        </div>
+      </div> */}
+
       <div className='section_title'>
         <h2>About <span>-</span>&nbsp;</h2>
         <ul>
@@ -17,8 +76,10 @@ function About() {
           <li>Skill</li>
         </ul>
       </div>
-      <div className='about_contents'>
+      <div className='contents'>
         <div className='about_me_wrap'>
+
+
           <div className='about_me'>
             <div className='about_me_top'>
               <div className='about_me_left about_me_text'>
@@ -200,7 +261,7 @@ function About() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import 'styles/work.css'
 import { FaCircle, FaChrome, FaGithub } from "react-icons/fa";
 
 function Work() {
+
+
+
   return (
     <div className='work'>
 
@@ -13,12 +16,32 @@ function Work() {
 
       <div className='work_wrap'>
         <div className='work_contents'>
+
+          {/* cj */}
           <div className='work_content cj'>
             <div className='work_preview'>
               <div className='mockup'>
-                <div className='pc_mockup'></div>
-                <div className='tablet_mockup'></div>
-                <div className='phone_mockup'></div>
+                <div className='pc_mockup'>
+                  <div className='pc_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/cjone_vid.webm'}
+                      title="cjone video" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+                <div className='tablet_mockup'>
+                  <div className='tablet_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/cjone_vid_tablet.mp4'}
+                      title="cjone video tablet" autoPlay={true} muted={true} loop={true} type="video/mp4" >
+                    </video>
+                  </div>
+                </div>
+                <div className='phone_mockup'>
+                  <div className='phone_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/cjone_vid_mo.webm'}
+                      title="cjone video mo" autoPlay={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
               </div>
             </div>
             <div className='work_description'>
@@ -62,14 +85,20 @@ function Work() {
               </ul>
             </div>
           </div>
+          {/* cj */}
 
-
-
+          {/* 삼성전기 */}
           <div className='work_content samsung_electric'>
             <div className='work_preview'>
-              <div className='pc_mockup'></div>
-              <div className='tablet_mockup'></div>
-              <div className='phone_mockup'></div>
+              <div className='mockup'>
+                <div className='pc_mockup'>
+                  <div className='pc_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/sselectric.webm'}
+                      title="삼성전기" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className='work_description'>
               <div className='description_space'>
@@ -110,15 +139,35 @@ function Work() {
               </ul>
             </div>
           </div>
+          {/* 삼성전기 */}
 
 
-
-
+          {/* 삼성엔지니어링 */}
           <div className='work_content samsung_engineering'>
             <div className='work_preview'>
-              <div className='pc_mockup'></div>
-              <div className='tablet_mockup'></div>
-              <div className='phone_mockup'></div>
+              <div className='mockup'>
+                <div className='pc_mockup'>
+                  <div className='pc_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/ssengineering.webm'}
+                      title="cjone video" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+                <div className='tablet_mockup'>
+                  <div className='tablet_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/cjone_vid_tablet.mp4'}
+                      title="cjone video tablet" autoPlay={true} muted={true} loop={true} type="video/mp4" >
+                    </video>
+                  </div>
+                </div>
+                <div className='phone_mockup'>
+                  <div className='phone_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/cjone_vid_mo.webm'}
+                      title="cjone video mo" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className='work_description'>
@@ -162,14 +211,31 @@ function Work() {
               </ul>
             </div>
           </div>
+          {/* 삼성엔지니어링 */}
 
-
-
+          {/* 메신저 */}
           <div className='work_content messanger'>
             <div className='work_preview'>
-              <div className='pc_mockup'></div>
-              <div className='tablet_mockup'></div>
-              <div className='phone_mockup'></div>
+
+              <div className='mockup_app'>
+
+                <div className='tablet_mockup_m'>
+                  <div className='tablet_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+
+                <div className='phone_mockup_m'>
+                  <div className='phone_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             <div className='work_description'>
@@ -210,15 +276,25 @@ function Work() {
               </ul>
             </div>
           </div>
+
+
+          {/* 메신저 */}
+          {/* 넷플 */}
+
           <div className='work_content netflix'>
             <div className='work_preview'>
-              <div className='mockup'>
-                <div className='pc_mockup'></div>
-                <div className='tablet_mockup'></div>
-                <div className='phone_mockup'></div>
+              <div className='mockup_app'>
+
+                <div className='tablet_mockup_m'>
+                  <div className='tablet_screen'>
+                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                    </video>
+                  </div>
+                </div>
+
               </div>
             </div>
-
             <div className='work_description'>
               <div className='description_space'>
                 <h3>넷플릭스</h3>
@@ -258,14 +334,14 @@ function Work() {
               </ul>
             </div>
           </div>
-
+          {/* 넷플 */}
         </div>
       </div>
 
 
 
 
-    </div>
+    </div >
 
   )
 }

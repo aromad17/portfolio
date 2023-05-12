@@ -5,15 +5,33 @@
   flex-direction: row;
   width: 100%;
   height: calc(100% - 250px);
+  overflow: hidden;
 }
 
 .section_title {
   position: absolute;
   top: 50px;
-  width: 100%;
+  width: 85vw;
   padding-left: 30px;
   background: #e6e9de;
   font-size: 6rem;
+  overflow: hidden;
+}
+
+.work .section_title:before {
+  background: #e6e9de;
+}
+
+.section_title:before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -75px;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  background: #242226;
+  transform: rotate(45deg);
 }
 
 .section_title>h2 {

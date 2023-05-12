@@ -11,29 +11,35 @@ function About() {
   useEffect(() => {
     const about = document.querySelector('.about');
     const aboutMove = document.querySelector('.about .contents');
-    const windowHeight = window.innerHeight;
+    about.style.transition = 'all 0.5s'; // 0.5초 동안 변화
+    aboutMove.style.transition = 'all 0.5s linear 0s, opacity 1s linear 0s';
 
     window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY || window.pageYOffset;
+      let scrollPosition = window.scrollY || window.pageYOffset;
 
       if (window.innerWidth >= 768) {
 
-        if (scrollPosition < 970) {
+        if (scrollPosition <= 970) {
+
           about.style.position = 'relative';
           aboutMove.style.left = '0';
+          about.style.zIndex = 0;
+          aboutMove.style.opacity = '0';
         }
-        if (scrollPosition >= 970 && !parseFloat(aboutMove.style.left) <= -100) {
-          const leftPosition = -((scrollPosition - 970) / 10);
+        if (scrollPosition > 970 && !parseFloat(aboutMove.style.left) <= 50) {
+          let leftPosition = -((scrollPosition - 970) / 10);
+          aboutMove.style.opacity = '1';
           about.style.position = 'fixed';
           about.style.left = 0;
           about.style.top = 0;
           about.style.zIndex = 100;
           aboutMove.style.left = leftPosition + "%";
 
-          if (parseFloat(aboutMove.style.left) <= -50) {
-            if (scrollPosition >= 1700) {
+          if (parseFloat(aboutMove.style.left) <= 50) {
+            if (scrollPosition >= 1900) {
               about.style.position = 'relative';
-
+              about.style.zIndex = 0;
+              aboutMove.style.opacity = '0';
             }
           }
         }
@@ -41,11 +47,10 @@ function About() {
     });
   }, []);
 
-
-
   return (
 
     <div className='about'>
+
       {/* 
       <div className='stripe_wrap'>
         <div className='stripe'>

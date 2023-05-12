@@ -1,13 +1,195 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import 'styles/work.css'
 import { FaCircle, FaChrome, FaGithub } from "react-icons/fa";
-
+import 'styles/bg_effect.scss'
 function Work() {
 
+  useEffect(() => {
+    const workMove = document.querySelector('.work .contents');
+    const prev = document.querySelector(".prev_btn");
+    const next = document.querySelector(".next_btn");
+    const box = document.querySelectorAll('.work_content');
+    let workNum = 0;
+
+    if (workNum === 0) {
+      prev.style.visibility = 'hidden';
+    }
+    const constrolVisible = () => {
+      if (workNum === 0) {
+        prev.style.visibility = 'hidden';
+      } else {
+        prev.style.visibility = 'visible';
+      }
+
+      if (workNum === -4) {
+        next.style.visibility = 'hidden';
+      } else {
+        next.style.visibility = 'visible';
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      box.forEach(item => {
+        item.style.width = window.clientWidth;
+        const boxSize = box[0].clientWidth;
+        workMove.style.left = workNum * boxSize + "px";
+      })
+    })
+
+    prev.addEventListener("click", (e) => {
+      e.preventDefault();
+      const boxSize = box[0].clientWidth;
+      workNum++;
+      if (workNum >= 0) {
+        workNum = 0;
+      }
+      workMove.style.left = workNum * boxSize + "px";
+      constrolVisible();
+      console.log(workNum);
+    })
+
+    next.addEventListener("click", (e) => {
+      e.preventDefault();
+      const boxSize = box[0].clientWidth;
+      workNum--;
+      if (workNum < -(box.length - 1)) {
+        workNum = -4;
+      }
+      workMove.style.left = workNum * boxSize + "px";
+      console.log(workNum);
+      workMove.style.left = workNum * boxSize + "px";
+      constrolVisible();
+    })
+
+
+
+
+    let canvas = document.getElementById("particlesBackground");
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    let c = canvas.getContext("2d");
+
+    let colors = ["#242226"];
+
+    function Circle(x, y, r, color) {
+      this.x = x;
+      this.y = y;
+      this.radius = r;
+      this.startX = x - 15;
+      this.endX = x + 15;
+      this.startY = y - 15;
+      this.endY = y + 15;
+      this.dx = Math.random() - 0.5;
+      this.dy = Math.random() - 0.5;
+
+      this.draw = function () {
+        c.beginPath();
+        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        c.fillStyle = color;
+        c.fill();
+      };
+
+      this.update = function () {
+        if (
+          this.x > this.endX ||
+          this.y > this.endY ||
+          this.x < this.startX ||
+          this.y < this.startY
+        ) {
+          this.dx = -this.dx;
+          this.dy = -this.dy;
+        }
+
+        this.x += this.dx;
+        this.y += this.dy;
+        this.draw();
+      };
+    }
+
+    let circlesArray = [];
+
+    for (let i = 0; i < 150; i++) {
+      let x = Math.random() * width;
+      let y = Math.random() * height;
+      let r = Math.random() * 10;
+      let index = Math.floor(Math.random() * colors.length);
+
+      let circle = new Circle(x, y, r, colors[index]);
+
+      circlesArray.push(circle);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      c.clearRect(0, 0, window.innerWidth, window.innerWidth);
+
+      for (let circle of circlesArray) {
+        circle.update();
+      }
+    }
+
+    animate();
+
+
+
+
+
+    // const work = document.querySelector('.work');
+    // const workMove = document.querySelector('.work .contents');
+    // const workContent = document.querySelectorAll('.work_content');
+
+
+
+    // window.addEventListener('scroll', () => {
+    //   let scrollPosition = window.scrollY || window.pageYOffset;
+    //   let windowWidth = window.innerWidth;
+    //   console.log(scrollPosition);
+
+    //   console.log(parseFloat(workMove.style.left))
+
+    //   if (window.innerWidth >= 768) {
+
+    //     if (scrollPosition < 1700) {
+    //       work.style.position = 'relative';
+    //       workMove.style.left = '0';
+    //       workMove.style.top = '0';
+    //       work.style.zIndex = 0;
+    //     }
+    //     if (scrollPosition >= 1700 && (parseFloat(workMove.style.left)) >= -450) {
+    //       let leftPosition = -((scrollPosition - 1700) / 20);
+    //       work.style.position = 'fixed';
+    //       work.style.left = 0;
+    //       work.style.top = 0;
+    //       work.style.zIndex = 100;
+    //       workMove.style.left = leftPosition + "%";
+    //       document.querySelector('body').style.height = ((windowWidth * workContent.length) * 2) + "px";
+
+    //       if ((parseFloat(workMove.style.left)) <= -450) {
+    //         console.log('eoek');
+    //         work.style.position = 'relative';
+    //         work.style.zIndex = 0;
+    //         document.querySelector('body').style.height = 'auto';
+    //       }
+
+    //     }
+    //   }
+    // });
+  }, []);
 
 
   return (
     <div className='work'>
+
+      <canvas id="particlesBackground">
+
+      </canvas>
+
+
 
       <div className='section_title'>
         <h2>Work</h2>
@@ -15,8 +197,18 @@ function Work() {
 
 
       <div className='work_wrap'>
-        <div className='work_contents'>
+        {/* <div className='bg_effect'>
+          <div className="pulse1"></div>
+          <div className="pulse2"></div>
+          <div className="profilepicture"></div>
+        </div> */}
 
+        <div className='work_controller'>
+          <a className='prev_btn'></a>
+          <a className='next_btn'></a>
+        </div>
+
+        <div className='work_contents contents'>
           {/* cj */}
           <div className='work_content cj'>
             <div className='work_preview'>
@@ -38,7 +230,7 @@ function Work() {
                 <div className='phone_mockup'>
                   <div className='phone_screen'>
                     <video src={process.env.PUBLIC_URL + '/images/cjone_vid_mo.webm'}
-                      title="cjone video mo" autoPlay={true} loop={true} type="video/webm" >
+                      title="cjone video mo" muted={true} autoPlay={true} loop={true} type="video/webm" >
                     </video>
                   </div>
                 </div>
@@ -86,7 +278,6 @@ function Work() {
             </div>
           </div>
           {/* cj */}
-
           {/* 삼성전기 */}
           <div className='work_content samsung_electric'>
             <div className='work_preview'>
@@ -140,8 +331,6 @@ function Work() {
             </div>
           </div>
           {/* 삼성전기 */}
-
-
           {/* 삼성엔지니어링 */}
           <div className='work_content samsung_engineering'>
             <div className='work_preview'>
@@ -212,7 +401,6 @@ function Work() {
             </div>
           </div>
           {/* 삼성엔지니어링 */}
-
           {/* 메신저 */}
           <div className='work_content messanger'>
             <div className='work_preview'>
@@ -276,11 +464,8 @@ function Work() {
               </ul>
             </div>
           </div>
-
-
           {/* 메신저 */}
           {/* 넷플 */}
-
           <div className='work_content netflix'>
             <div className='work_preview'>
               <div className='mockup_app'>

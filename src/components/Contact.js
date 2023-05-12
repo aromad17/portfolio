@@ -29,8 +29,12 @@ function Contact() {
       });
   };
 
+
+
+
   return (
     <div className='contact'>
+
       <div className='section_title'>
         <h2>Contact</h2>
       </div>

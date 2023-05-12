@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  background-color: #E6E9DE;
 }
 
 .work>.section_title {
@@ -17,12 +18,76 @@
   top: 250px;
   width: 100%;
   height: calc(100% - 250px);
-  /* overflow: hidden; */
+  overflow: hidden;
+}
+
+.work_controller {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 100px;
+  z-index: 5;
+}
+
+.prev_btn,
+.next_btn {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 10px solid #242226;
+  border-right: none;
+  border-bottom: none;
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.prev_btn {
+  left: 30px;
+  transform: translateY(-50%) rotate(-45deg);
+  animation: prev 1s linear 0s infinite;
+}
+
+@keyframes prev {
+  0% {
+    transform: translateX(0%) translateY(-50%) rotate(-45deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.next_btn {
+  right: 30px;
+  transform: translateY(-50%) rotate(135deg);
+  animation: next 1s linear 0s infinite;
+}
+
+@keyframes next {
+  0% {
+    transform: translateX(0%) translateY(-50%) rotate(135deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(50%) translateY(-50%) rotate(135deg);
+    opacity: 0;
+  }
 }
 
 .work_contents {
   position: relative;
   display: flex;
+  left: 0;
+  top: 0;
+  transition: left 0.5s ease 0s;
   flex-direction: row;
   width: 500%;
   height: 100%;
@@ -50,6 +115,7 @@
   transform: translateY(-50%);
   width: 100%;
   height: 50%;
+  perspective: 1000px;
 }
 
 .mockup_app {
@@ -147,10 +213,10 @@
 .phone_mockup {
   position: absolute;
   bottom: 0%;
-  right: 5%;
+  right: 0%;
   width: 130px;
   height: 263px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotateY(-30deg) rotateX(10deg);
   background-image: url(../../public/images/phone.png);
   background-size: cover;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
@@ -304,6 +370,7 @@
   color: #242226;
 }
 
+/* 
 .cj {
   border: 1px solid orangered;
 }
@@ -322,4 +389,13 @@
 
 .netflix {
   border: 1px solid purple;
+} */
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

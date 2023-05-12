@@ -4,22 +4,49 @@ import 'styles/polygon.css'
 function Intro() {
 
   const completionWord = 'LEE SANG HYEON';
+
   const [typeText, setTypeText] = useState('');
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-
-
-
-
+    // Typing animation
     if (count < completionWord.length) {
       const typingInterval = setTimeout(() => {
         setTypeText((prevTitleValue) => prevTitleValue + completionWord[count]);
-        setCount(count + 1);
+        setCount((prevCount) => prevCount + 1);
       }, 300);
-      return () => clearInterval(typingInterval);
+      return () => clearTimeout(typingInterval); // Use clearTimeout to clear the timeout
     }
-  }, [count, typeText, completionWord]);
+
+    // Other animations and functions
+    // Execute them only when the typing animation is complete
+    const executeOtherAnimations = () => {
+      const letter = document.querySelectorAll('span ul li');
+      letter.forEach((item, idx) => {
+        item.style.animationDelay = 1 * idx + "s";
+      });
+
+      const circle = document.querySelectorAll('.circle');
+      circle.forEach((item, idx) => {
+        setTimeout(() => {
+          item.style.transform = `translateX(0px)`;
+        }, 500 * idx);
+      });
+
+      const texts = document.querySelectorAll('.texts span ul');
+      texts.forEach((item, idx) => {
+        setTimeout(() => {
+          item.style.transform = `translateY(0px) translateX(-50%)`;
+          item.style.opacity = '1';
+        }, 0);
+      });
+    };
+
+    // Execute the other animations after the typing animation is complete
+    executeOtherAnimations();
+  }, [count, completionWord]);
+
+
 
 
   return (
@@ -37,9 +64,31 @@ function Intro() {
             </div>
           </div>
         </div>
-        <div className='intro_left_texts'>
-          <span>JaVa SCriPT</span>
-          <span>ReaCT</span>
+        <div className='intro_left_texts texts'>
+          <span>
+            <ul>
+              <li>J</li>
+              <li>A</li>
+              <li>V</li>
+              <li>A</li>
+              <li></li>
+              <li>S</li>
+              <li>C</li>
+              <li>R</li>
+              <li>I</li>
+              <li>P</li>
+              <li>T</li>
+            </ul>
+          </span>
+          <span>
+            <ul>
+              <li>R</li>
+              <li>E</li>
+              <li>A</li>
+              <li>C</li>
+              <li>T</li>
+            </ul>
+          </span>
         </div>
       </div>
 
@@ -48,9 +97,34 @@ function Intro() {
           <h1 className="main-title">{typeText}<span className='typing_bar'>|</span></h1>
         </div>
 
-        <div className='intro_content_right'>
-          <span>FRONT END</span>
-          <span>Html + csS</span>
+        <div className='intro_content_right texts'>
+          <span>
+            <ul>
+              <li>F</li>
+              <li>R</li>
+              <li>O</li>
+              <li>N</li>
+              <li>T</li>
+              <li>&nbsp;</li>
+              <li>E</li>
+              <li>N</li>
+              <li>D</li>
+            </ul>
+          </span>
+          <span>
+            <ul>
+              <li>H</li>
+              <li>T</li>
+              <li>M</li>
+              <li>L</li>
+              <li>&nbsp;</li>
+              <li>+</li>
+              <li>&nbsp;</li>
+              <li>C</li>
+              <li>s</li>
+              <li>S</li>
+            </ul>
+          </span>
         </div>
 
         <div className='intro_content_footer'>
@@ -65,14 +139,7 @@ function Intro() {
             </div>
             <span>SCROLL DOWN</span>
           </div>
-
-
-
-
         </div>
-
-
-
       </div>
     </div>
   )

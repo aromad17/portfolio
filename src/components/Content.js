@@ -27,7 +27,6 @@ function Content() {
     const liElement = document.querySelector('.content header ul li');
 
     const liContent = [
-
       {
         content: `
           <strong>WORK</strong>
@@ -75,7 +74,7 @@ function Content() {
         newLi.className = liClass[currentIndexRef.current];
         newLi.innerHTML = `
           ${liContent[currentIndexRef.current].content}
-          <img src="${process.env.PUBLIC_URL + '/images/XMARK.png'}" alt="${liContent[currentIndexRef.current].altText}" />
+          <img src="${process.env.PUBLIC_URL + '/images/Xmark.png'}" alt="${liContent[currentIndexRef.current].altText}" />
         `;
 
         ulElement.appendChild(newLi);

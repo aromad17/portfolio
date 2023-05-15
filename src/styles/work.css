@@ -333,7 +333,7 @@
   border-radius: 10px;
   margin-right: 15px;
   padding: 0 20px;
-  background: #E6E9DE;
+  background: #ff7f50;
   line-height: 40px;
   color: #242226;
   font-size: 1.5rem;
@@ -405,7 +405,7 @@
 .work_description>ul>li>a>svg {
   width: 3rem;
   height: 3rem;
-  color: #242226;
+  color: #ff7f50;
 }
 
 /* 

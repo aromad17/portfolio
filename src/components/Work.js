@@ -33,11 +33,10 @@ function Work() {
           item.style.opacity = 0;
         })
 
-      } else if (windowScroll >= 2100) {
+      } else if (windowScroll >= 1900) {
 
         workNum = 0;
         workContent[0].style.opacity = 1;
-        console.log(workNum);
         workMove.style.left = 0;
         if (workNum === 0) {
           prev.style.visibility = 'hidden';

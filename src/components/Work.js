@@ -33,7 +33,7 @@ function Work() {
           item.style.opacity = 0;
         })
 
-      } else if (windowScroll >= 1900) {
+      } else if (windowScroll >= 2100) {
 
         workNum = 0;
         workContent[0].style.opacity = 1;

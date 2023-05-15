@@ -9,11 +9,47 @@ function Work() {
     const prev = document.querySelector(".prev_btn");
     const next = document.querySelector(".next_btn");
     const box = document.querySelectorAll('.work_content');
+    const workContent = document.querySelectorAll(".work_content");
     let workNum = 0;
+
+    const activation = (i, value) => {
+      for (let el of value) {
+        el.style.opacity = "0";
+      }
+      value[i].style.opacity = '1';
+    }
+
+    workContent.forEach(item => {
+      item.style.opacity = 0;
+    })
+
+    window.addEventListener("scroll", () => {
+      const windowScroll = window.scrollY || window.pageYOffset;
+
+      console.log(windowScroll);
+      if (windowScroll < 1600) {
+
+        workContent.forEach(item => {
+          item.style.opacity = 0;
+        })
+
+      } else if (windowScroll >= 1900) {
+
+        workNum = 0;
+        workContent[0].style.opacity = 1;
+        console.log(workNum);
+        workMove.style.left = 0;
+        if (workNum === 0) {
+          prev.style.visibility = 'hidden';
+        }
+      }
+    })
+
 
     if (workNum === 0) {
       prev.style.visibility = 'hidden';
     }
+
     const constrolVisible = () => {
       if (workNum === 0) {
         prev.style.visibility = 'hidden';
@@ -44,6 +80,7 @@ function Work() {
         workNum = 0;
       }
       workMove.style.left = workNum * boxSize + "px";
+      activation(Math.abs(workNum), workContent);
       constrolVisible();
       console.log(workNum);
     })
@@ -56,139 +93,19 @@ function Work() {
         workNum = -4;
       }
       workMove.style.left = workNum * boxSize + "px";
-      console.log(workNum);
-      workMove.style.left = workNum * boxSize + "px";
+      activation(Math.abs(workNum), workContent);
       constrolVisible();
     })
 
 
 
 
-    let canvas = document.getElementById("particlesBackground");
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    let c = canvas.getContext("2d");
-
-    let colors = ["#242226"];
-
-    function Circle(x, y, r, color) {
-      this.x = x;
-      this.y = y;
-      this.radius = r;
-      this.startX = x - 15;
-      this.endX = x + 15;
-      this.startY = y - 15;
-      this.endY = y + 15;
-      this.dx = Math.random() - 0.5;
-      this.dy = Math.random() - 0.5;
-
-      this.draw = function () {
-        c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        c.fillStyle = color;
-        c.fill();
-      };
-
-      this.update = function () {
-        if (
-          this.x > this.endX ||
-          this.y > this.endY ||
-          this.x < this.startX ||
-          this.y < this.startY
-        ) {
-          this.dx = -this.dx;
-          this.dy = -this.dy;
-        }
-
-        this.x += this.dx;
-        this.y += this.dy;
-        this.draw();
-      };
-    }
-
-    let circlesArray = [];
-
-    for (let i = 0; i < 150; i++) {
-      let x = Math.random() * width;
-      let y = Math.random() * height;
-      let r = Math.random() * 10;
-      let index = Math.floor(Math.random() * colors.length);
-
-      let circle = new Circle(x, y, r, colors[index]);
-
-      circlesArray.push(circle);
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      c.clearRect(0, 0, window.innerWidth, window.innerWidth);
-
-      for (let circle of circlesArray) {
-        circle.update();
-      }
-    }
-
-    animate();
-
-
-
-
-
-    // const work = document.querySelector('.work');
-    // const workMove = document.querySelector('.work .contents');
-    // const workContent = document.querySelectorAll('.work_content');
-
-
-
-    // window.addEventListener('scroll', () => {
-    //   let scrollPosition = window.scrollY || window.pageYOffset;
-    //   let windowWidth = window.innerWidth;
-    //   console.log(scrollPosition);
-
-    //   console.log(parseFloat(workMove.style.left))
-
-    //   if (window.innerWidth >= 768) {
-
-    //     if (scrollPosition < 1700) {
-    //       work.style.position = 'relative';
-    //       workMove.style.left = '0';
-    //       workMove.style.top = '0';
-    //       work.style.zIndex = 0;
-    //     }
-    //     if (scrollPosition >= 1700 && (parseFloat(workMove.style.left)) >= -450) {
-    //       let leftPosition = -((scrollPosition - 1700) / 20);
-    //       work.style.position = 'fixed';
-    //       work.style.left = 0;
-    //       work.style.top = 0;
-    //       work.style.zIndex = 100;
-    //       workMove.style.left = leftPosition + "%";
-    //       document.querySelector('body').style.height = ((windowWidth * workContent.length) * 2) + "px";
-
-    //       if ((parseFloat(workMove.style.left)) <= -450) {
-    //         console.log('eoek');
-    //         work.style.position = 'relative';
-    //         work.style.zIndex = 0;
-    //         document.querySelector('body').style.height = 'auto';
-    //       }
-
-    //     }
-    //   }
-    // });
   }, []);
 
 
   return (
     <div className='work'>
-
-      <canvas id="particlesBackground">
-
-      </canvas>
-
 
 
       <div className='section_title'>
@@ -197,11 +114,6 @@ function Work() {
 
 
       <div className='work_wrap'>
-        {/* <div className='bg_effect'>
-          <div className="pulse1"></div>
-          <div className="pulse2"></div>
-          <div className="profilepicture"></div>
-        </div> */}
 
         <div className='work_controller'>
           <a className='prev_btn'></a>
@@ -213,6 +125,10 @@ function Work() {
           <div className='work_content cj'>
             <div className='work_preview'>
               <div className='mockup'>
+                <ul>
+                  <li>개인 작업물</li>
+                  <li> 웹 접근성 검사 결과 보기</li>
+                </ul>
                 <div className='pc_mockup'>
                   <div className='pc_screen'>
                     <video src={process.env.PUBLIC_URL + '/images/cjone_vid.webm'}
@@ -282,6 +198,10 @@ function Work() {
           <div className='work_content samsung_electric'>
             <div className='work_preview'>
               <div className='mockup'>
+                <ul>
+                  <li>개인 작업물</li>
+                  <li> 웹 접근성 검사 결과 보기</li>
+                </ul>
                 <div className='pc_mockup'>
                   <div className='pc_screen'>
                     <video src={process.env.PUBLIC_URL + '/images/sselectric.webm'}
@@ -335,6 +255,10 @@ function Work() {
           <div className='work_content samsung_engineering'>
             <div className='work_preview'>
               <div className='mockup'>
+                <ul>
+                  <li>개인 작업물</li>
+                  <li> 웹 접근성 검사 결과 보기</li>
+                </ul>
                 <div className='pc_mockup'>
                   <div className='pc_screen'>
                     <video src={process.env.PUBLIC_URL + '/images/ssengineering.webm'}
@@ -404,25 +328,29 @@ function Work() {
           {/* 메신저 */}
           <div className='work_content messanger'>
             <div className='work_preview'>
+              <div className='mockup'>
+                <ul>
+                  <li>개인 작업물</li>
+                </ul>
 
-              <div className='mockup_app'>
+                <div className='mockup_app'>
 
-                <div className='tablet_mockup_m'>
-                  <div className='tablet_screen'>
-                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
-                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
-                    </video>
+                  <div className='tablet_mockup_m'>
+                    <div className='tablet_screen'>
+                      <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                        title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                      </video>
+                    </div>
+                  </div>
+
+                  <div className='phone_mockup_m'>
+                    <div className='phone_screen'>
+                      <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                        title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                      </video>
+                    </div>
                   </div>
                 </div>
-
-                <div className='phone_mockup_m'>
-                  <div className='phone_screen'>
-                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
-                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
-                    </video>
-                  </div>
-                </div>
-
               </div>
             </div>
 
@@ -468,16 +396,26 @@ function Work() {
           {/* 넷플 */}
           <div className='work_content netflix'>
             <div className='work_preview'>
-              <div className='mockup_app'>
-
-                <div className='tablet_mockup_m'>
-                  <div className='tablet_screen'>
-                    <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
-                      title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
-                    </video>
+              <div className='mockup'>
+                <ul>
+                  <li>개인 작업물</li>
+                </ul>
+                <div className='mockup_app'>
+                  <div className='tablet_mockup_m'>
+                    <div className='tablet_screen'>
+                      <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                        title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                      </video>
+                    </div>
+                  </div>
+                  <div className='phone_mockup_m'>
+                    <div className='phone_screen'>
+                      <video src={process.env.PUBLIC_URL + '/images/netflix.webm'}
+                        title="netflix video tablet" autoPlay={true} muted={true} loop={true} type="video/webm" >
+                      </video>
+                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
             <div className='work_description'>

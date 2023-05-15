@@ -1,12 +1,18 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import 'styles/common.css';
 import 'styles/content.scss';
 import About from './About';
 import Work from './Work';
 import Contact from './Contact';
 import Intro from './Intro';
+import Sidemenu from './Sidemenu';
 
 function Content() {
+
+  const [isHamOn, setIsHamOn] = useState(false);
+  const [isHamSpanOn, setIsHamSpanOn] = useState(false);
+  const [isSpanHover, setIsSpanHover] = useState(false);
+  const hamRef = useRef(null);
   const currentIndexRef = useRef(0);
   const intervalIdRef = useRef(null); // New ref for storing the interval ID
 
@@ -103,9 +109,13 @@ function Content() {
     };
   }, []);
 
+
+
   useEffect(() => {
     const header = document.querySelector('header');
+    const sideMenu = document.querySelector('.Menu');
     const ham = document.querySelector('.ham');
+
     animatedHeader();
 
     setTimeout(() => {
@@ -119,17 +129,45 @@ function Content() {
         const opacity = (scrollPosition - 100) / 100;
         header.style.opacity = 1 - opacity;
         ham.style.opacity = opacity;
-      } else {
+      } else if (scrollPosition <= 100) {
         header.style.opacity = 1;
         ham.style.opacity = 0;
       }
     });
+
+
+
+    setTimeout(() => {
+      header.style.height = '100px';
+    }, 2000);
+
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.pageYOffset;
+
+      if (scrollPosition >= 100) {
+        const opacity = (scrollPosition - 100) / 100;
+        header.style.opacity = 1 - opacity;
+        header.style.zIndex = -1;
+        hamRef.current.style.opacity = opacity;
+
+      } else {
+        header.style.opacity = '1';
+        hamRef.current.style.opacity = '0';
+        header.style.zIndex = 50;
+      }
+
+    });
+
   }, []);
 
-
+  const handleHamClick = (e) => {
+    e.preventDefault();
+    setIsHamOn((prev) => !prev);
+    setIsHamSpanOn((prev) => !prev);
+  };
 
   return (
-    <div className='content'>
+    <div className="content">
       <header>
         <p>SEE ALL</p>
         <ul>
@@ -163,15 +201,21 @@ function Content() {
           </li>
         </ul>
       </header>
-      <div className='ham'>
-        <span>SEE ALL</span>
+      <div className={`ham front ${isHamOn ? 'on' : ''}`} ref={hamRef} onClick={handleHamClick}>
+        {isHamOn ?
+          <span className='span_on'>CLOSE</span>
+          :
+          <span className='span_off'>SEE ALL</span>
+        }
+        {/* <span className = {`${isSpanHover ? 'on' : ''}`} onMouseEnter={handleSpanHover} onMouseLeave={handleSpanHover}>{isHamSpanOn ? "CLOSE" : "SEE ALL" }</span> */}
       </div>
+      <Sidemenu setIsHamOn={setIsHamOn} isHamOn={isHamOn} />
       <Intro />
       <About />
       <Work />
       <Contact />
     </div>
-  )
+  );
 }
 
-export default Content
+export default Content;

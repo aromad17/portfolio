@@ -16,35 +16,34 @@ function About() {
 
     window.addEventListener('scroll', () => {
       let scrollPosition = window.scrollY || window.pageYOffset;
+      const computedStyle = window.getComputedStyle(aboutMove);
+      const leftValue = Number(computedStyle.getPropertyValue('left').replace('px', ''));
 
+      console.log('aasd->', leftValue);
       if (window.innerWidth >= 768) {
+        if (scrollPosition > 900) {
+          let leftPosition = -((scrollPosition - 900) / 10);
+          aboutMove.style.opacity = '1';
 
-        if (scrollPosition <= 970) {
-
+          if (leftPosition > -60 && scrollPosition < 1900) {
+            about.style.position = 'fixed';
+            about.style.left = '0';
+            about.style.top = '0';
+            about.style.zIndex = '100';
+            aboutMove.style.left = leftPosition + "%";
+          } else {
+            about.style.position = 'relative';
+            about.style.zIndex = 0;
+            aboutMove.style.opacity = '0';
+          }
+        } else {
           about.style.position = 'relative';
-          aboutMove.style.left = '0';
           about.style.zIndex = 0;
           aboutMove.style.opacity = '0';
         }
-        if (scrollPosition > 970 && !parseFloat(aboutMove.style.left) <= 50) {
-          let leftPosition = -((scrollPosition - 970) / 10);
-          aboutMove.style.opacity = '1';
-          about.style.position = 'fixed';
-          about.style.left = 0;
-          about.style.top = 0;
-          about.style.zIndex = 100;
-          aboutMove.style.left = leftPosition + "%";
-
-          if (parseFloat(aboutMove.style.left) <= 50) {
-            if (scrollPosition >= 1900) {
-              about.style.position = 'relative';
-              about.style.zIndex = 0;
-              aboutMove.style.opacity = '0';
-            }
-          }
-        }
       }
     });
+
   }, []);
 
   return (

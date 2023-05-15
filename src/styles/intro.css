@@ -186,7 +186,7 @@
   cursor: pointer;
   border-collapse: collapse;
   background: transparent;
-  transition: background 0.3s linear 0s, transform 1s linear 0s;
+  transition: background 0.3s bounce 0s, transform 1s linear 0s;
   transform: translateX(2000px);
 }
 

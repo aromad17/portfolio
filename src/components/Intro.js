@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import 'styles/intro.css'
 import 'styles/polygon.css'
 function Intro() {
-
   const completionWord = 'LEE SANG HYEON';
 
   const [typeText, setTypeText] = useState('');
@@ -42,8 +41,23 @@ function Intro() {
       });
     };
 
-    // Execute the other animations after the typing animation is complete
+    const circles = document.querySelectorAll('.circle');
+    const animateWave = () => {
+      circles.forEach((circle, index) => {
+        setTimeout(() => {
+          circle.classList.add('wave');
+        }, index * 2000); // 2초 간격으로 파동 애니메이션 시작
+      });
+    };
+
+    animateWave();
     executeOtherAnimations();
+
+    return () => {
+      circles.forEach(circle => {
+        circle.classList.remove('wave');
+      });
+    };
   }, [count, completionWord]);
 
 
@@ -121,7 +135,7 @@ function Intro() {
               <li>+</li>
               <li>&nbsp;</li>
               <li>C</li>
-              <li>s</li>
+              <li>S</li>
               <li>S</li>
             </ul>
           </span>

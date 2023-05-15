@@ -176,28 +176,28 @@ function Content() {
             <span>
               Creating UI of<br /> a website
             </span>
-            <img src={process.env.PUBLIC_URL + '/images/XMARK.png'} alt="ABOUT으로 이동" />
+            <img src={process.env.PUBLIC_URL + '/images/Xmark.png'} alt="ABOUT으로 이동" />
           </li>
           <li className='work_menu'>
             <strong>WORK</strong>
             <span>
               Watch What<br />I Did
             </span>
-            <img src={process.env.PUBLIC_URL + '/images/XMARK.png'} alt="ABOUT으로 이동" />
+            <img src={process.env.PUBLIC_URL + '/images/Xmark.png'} alt="WORK로 이동" />
           </li>
           <li className='contact_menu'>
             <strong>CONTACT</strong>
             <span>
               Get In Touch<br />With Me
             </span>
-            <img src={process.env.PUBLIC_URL + '/images/XMARK.png'} alt="ABOUT으로 이동" />
+            <img src={process.env.PUBLIC_URL + '/images/Xmark.png'} alt="CONTACT로 이동" />
           </li>
           <li className='about_menu'>
             <strong>ABOUT</strong>
             <span>
               Creating UI of<br /> a website
             </span>
-            <img src={process.env.PUBLIC_URL + '/images/XMARK.png'} alt="ABOUT으로 이동" />
+            <img src={process.env.PUBLIC_URL + '/images/Xmark.png'} alt="ABOUT으로 이동" />
           </li>
         </ul>
       </header>
